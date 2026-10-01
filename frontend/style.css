@@ -1,0 +1,318 @@
+/* Filmkatalogus - reszponziv elrendezes, mobile-first */
+
+:root {
+  --lila: #6b4a86;        /* a 13.i osztaly szine */
+  --lila-sotet: #4f3564;
+  --hatter: #f6f4f8;
+  --panel: #ffffff;
+  --szoveg: #2b2530;
+  --halvany: #625a68;
+  --keret: #e2dce8;
+  --piros: #b3261e;
+  --csillag: #9a6700;
+  --kedvenc: #b0145a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--hatter);
+  color: var(--szoveg);
+  line-height: 1.45;
+}
+
+/* ---------- fejlec ---------- */
+
+.fejlec {
+  background: var(--lila);
+  color: #fff;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fejlec h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.backend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.backend select {
+  width: auto;
+  max-width: 100%;
+}
+
+.backend label {
+  color: #fff;
+}
+
+.allapot {
+  font-size: 0.85rem;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.allapot:empty {
+  display: none;
+}
+
+.allapot.rossz {
+  background: #fde8e7;
+  color: var(--piros);
+}
+
+/* ---------- tartalom ---------- */
+
+.tartalom {
+  display: grid;
+  gap: 16px;
+  padding: 16px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--keret);
+  border-radius: 10px;
+  padding: 16px;
+}
+
+h2 {
+  margin: 0 0 12px;
+  font-size: 1.2rem;
+  color: var(--lila-sotet);
+}
+
+/* ---------- urlap ---------- */
+
+form {
+  display: grid;
+  gap: 10px;
+}
+
+label {
+  display: grid;
+  gap: 4px;
+  font-size: 0.9rem;
+  color: var(--halvany);
+}
+
+input,
+select,
+button {
+  font: inherit;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--keret);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--szoveg);
+}
+
+input:focus,
+select:focus,
+button:focus-visible {
+  outline: 2px solid var(--lila);
+  outline-offset: 1px;
+}
+
+.ket-oszlop {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.jelolo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--szoveg);
+}
+
+.hiba {
+  margin: 0;
+  min-height: 1.2em;
+  color: var(--piros);
+  font-size: 0.9rem;
+}
+
+.gombsor {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+button {
+  padding: 8px 14px;
+  border: 1px solid var(--lila);
+  border-radius: 6px;
+  background: var(--lila);
+  color: #fff;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--lila-sotet);
+}
+
+button.masodlagos {
+  background: #fff;
+  color: var(--lila);
+}
+
+button.veszelyes {
+  background: #fff;
+  color: var(--piros);
+  border-color: var(--piros);
+}
+
+button.masodlagos:hover,
+button.veszelyes:hover {
+  background: var(--hatter);
+}
+
+/* ---------- lista ---------- */
+
+.lista-fej {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.lista-fej h2 {
+  margin: 0;
+}
+
+.lista-fej label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.lista-fej select {
+  width: auto;
+}
+
+.uzenet {
+  margin: 0 0 8px;
+  color: var(--halvany);
+}
+
+.uzenet:empty {
+  display: none;
+}
+
+.kartyak {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.kartya {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px;
+  border: 1px solid var(--keret);
+  border-left: 4px solid var(--lila);
+  border-radius: 8px;
+}
+
+.kartya-cim {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.kedvenc {
+  color: var(--kedvenc);
+}
+
+.adatok {
+  margin: 0;
+  color: var(--halvany);
+  font-size: 0.9rem;
+}
+
+.csillagok {
+  margin: 0;
+  color: var(--csillag);
+  letter-spacing: 2px;
+}
+
+.csillagok.nincs {
+  color: var(--halvany);
+  letter-spacing: normal;
+  font-size: 0.9rem;
+}
+
+.kartya .gombsor {
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+.lablec {
+  padding: 16px;
+  text-align: center;
+  color: var(--halvany);
+  font-size: 0.8rem;
+}
+
+/* ---------- 1. toresi pont: tablet ---------- */
+
+@media (min-width: 600px) {
+  .fejlec {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .kartyak {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ---------- 2. toresi pont: asztali - urlap balra, lista jobbra ---------- */
+
+@media (min-width: 960px) {
+  .tartalom {
+    grid-template-columns: 320px 1fr;
+    align-items: start;
+  }
+
+  .urlap-panel {
+    position: sticky;
+    top: 16px;
+  }
+}
+
+/* ---------- 3. toresi pont: szeles kepernyo ---------- */
+
+@media (min-width: 1280px) {
+  .kartyak {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

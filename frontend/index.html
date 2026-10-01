@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Filmkatalogus</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="fejlec">
+    <h1>Filmkatalogus</h1>
+    <div class="backend">
+      <label for="backend">Backend:</label>
+      <select id="backend">
+        <option value="http://127.0.0.1:5001">C# - ASP.NET Core (5001)</option>
+        <option value="http://127.0.0.1:5002">Node.js - Express (5002)</option>
+        <option value="http://127.0.0.1:5003">Python - Flask (5003)</option>
+        <option value="http://127.0.0.1:5004">Python - FastAPI (5004)</option>
+      </select>
+      <span id="allapot" class="allapot" role="status"></span>
+    </div>
+  </header>
+
+  <main class="tartalom">
+    <section class="panel urlap-panel" aria-labelledby="urlap-cim">
+      <h2 id="urlap-cim">Uj film</h2>
+      <!-- novalidate: a bemenetet szandekosan a backend ellenorzi, hogy a hibauzenetei latszodjanak -->
+      <form id="urlap" novalidate>
+        <label>Cim
+          <input name="cim" type="text" autocomplete="off">
+        </label>
+        <div class="ket-oszlop">
+          <label>Ev
+            <input name="ev" type="number">
+          </label>
+          <label>Hossz (perc)
+            <input name="perc" type="number">
+          </label>
+        </div>
+        <label>Mufaj
+          <input name="mufaj" type="text" list="mufajok" autocomplete="off">
+        </label>
+        <datalist id="mufajok"></datalist>
+        <label>Ertekeles
+          <select name="ertekeles">
+            <option value="0">meg nincs ertekelve</option>
+            <option value="1">1 csillag</option>
+            <option value="2">2 csillag</option>
+            <option value="3">3 csillag</option>
+            <option value="4">4 csillag</option>
+            <option value="5">5 csillag</option>
+          </select>
+        </label>
+        <label class="jelolo">
+          <input name="kedvenc" type="checkbox"> Kedvenc
+        </label>
+        <p id="urlap-hiba" class="hiba" role="alert"></p>
+        <div class="gombsor">
+          <button type="submit">Mentes</button>
+          <button type="button" id="megse" class="masodlagos" hidden>Megse</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel lista-panel" aria-labelledby="lista-cim">
+      <div class="lista-fej">
+        <h2 id="lista-cim">Filmek</h2>
+        <label>Mufaj:
+          <select id="szuro">
+            <option value="">mind</option>
+          </select>
+        </label>
+      </div>
+      <p id="uzenet" class="uzenet" role="status"></p>
+      <ul id="lista" class="kartyak"></ul>
+    </section>
+  </main>
+
+  <footer class="lablec">Egy frontend, negy backend - a kozos szerzodes: API.md</footer>
+</body>
+</html>

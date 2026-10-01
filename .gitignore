@@ -1,0 +1,50 @@
+# Filmkatalogus tech demo - egy frontend, negy backend (C#, Node.js, ket Python)
+
+# ---------- C# / .NET (backend-csharp) ----------
+[Bb]in/
+[Oo]bj/
+.vs/
+*.user
+*.suo
+*.nupkg
+launchSettings.json
+
+# ---------- Node.js (backend-node, contract-test) ----------
+# a package-lock.json szandekosan verziokezelt
+node_modules/
+npm-debug.log*
+.npm/
+
+# ---------- Python (backend-flask, backend-fastapi) ----------
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+
+# ---------- Kornyezeti valtozok, helyi beallitasok ----------
+.env
+.env.*
+!.env.example
+
+# ---------- Adatbazis: helyi mentesek (a database/filmkatalogus.sql marad) ----------
+*.sql.bak
+*.dump
+
+# ---------- Szerkesztok ----------
+.idea/
+*.swp
+*~
+
+# ---------- Operacios rendszer ----------
+Thumbs.db
+[Dd]esktop.ini
+.DS_Store
+
+# ---------- Naplok, ideiglenes fajlok ----------
+*.log
+*.tmp
