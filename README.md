@@ -28,7 +28,7 @@ filmkatalogus-techdemo/
 
 ## Előfeltételek
 
-- **XAMPP** – a „MySQL” modulja valójában MariaDB 10.4. Root felhasználó, üres jelszó (alapbeállítás).
+- **XAMPP** – a „MySQL” modulja valójában MariaDB: a régebbi XAMPP 8.2.12-ben 10.4, a most letölthető 8.3–8.5-ös változatokban 10.11. Az SQL 10.4-kompatibilis, a tesztek 10.11-en futottak. Root felhasználó, üres jelszó (alapbeállítás).
 - **Node.js 18+** – a Node backendhez és a contract teszthez. Ajánlott a 24-es LTS.
 - **Python 3.10+** – a két Python backendhez.
 - **.NET 10 SDK** – a C# backendhez. Visual Studióból csak a **VS 2026** nyitja meg; VS 2022-vel a `dotnet` parancssorból (pl. VS Code-ból) futtatható.
@@ -121,4 +121,4 @@ Elvárt eredmény: `53/53 OK`. Ha bármelyik sor `HIBA`, a teljes kimenetet hozd
 - **Ékezetek a forráskódban:** a szabálykönyv NY4 pontja szerint a forráskódban nincs ékezet (kommentek, szövegkonstansok, a felület feliratai). Az adatbázis adatai (pl. „Mátrix”) ékezetesek. Ha a felületen ékezetet szeretnél, az NY4 alóli kivétel kell.
 - **Miért `127.0.0.1` és nem `localhost`?** A `localhost` egyes rendszereken IPv6-ra (`::1`) oldódik fel, amin az XAMPP MariaDB nem feltétlenül figyel. A fix IPv4-cím ezt a hibalehetőséget kizárja.
 - **Környezeti változók** (mind a négy backendben): `DB_HOST`, `DB_PORT`, `DB_USER`, `DB_PASSWORD`, `DB_NAME`, `PORT`.
-- **Nyers SQL mindenhol:** a négy backend ugyanazt az öt SQL-utasítást futtatja, így sorról sorra összehasonlítható. A C# ezért nem Entity Framework Core-t használ: az EF Core 10 + MySQL párosításhoz a Pomelo providernek a döntés idején nem volt kiadása.
+- **Nyers SQL mindenhol:** a négy backend ugyanazt az öt SQL-utasítást futtatja, így sorról sorra összehasonlítható. A C# ezért nem Entity Framework Core-t használ. Ráadásul az EF Core 10-hez nincs ingyenes, MariaDB-t támogató provider: a Pomelo legutóbbi kiadása 9.0.0, az Oracle `MySql.EntityFrameworkCore` 10.x csak MySQL-t támogat, a Devart-féle fizetős (ellenőrizve 2026-10-25).
