@@ -1,7 +1,7 @@
 -- Filmkatalogus - kozos adatbazis a negy backendhez
 -- Importalas: XAMPP -> phpMyAdmin -> Importalas -> ez a fajl (UTF-8)
 -- vagy parancssorbol: mysql -u root < filmkatalogus.sql
--- MariaDB 10.4 (XAMPP) es MySQL 8 kompatibilis.
+-- MariaDB 10.4 (XAMPP 8.2.12), MariaDB 10.11 (XAMPP 8.3-8.5) es MySQL 8 kompatibilis.
 
 SET NAMES utf8mb4;
 
